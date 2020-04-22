@@ -1,3 +1,4 @@
+require('dotenv').config()
 const opensea = require('opensea-js')
 const OpenSeaPort = opensea.OpenSeaPort;
 const Network = opensea.Network;
@@ -42,7 +43,7 @@ const seaport = new OpenSeaPort(providerEngine, {
 
 async function main() {
 
-    // Example: simple fixed-price sale of an item owned by a user. 
+    // Example: simple fixed-price sale of an item owned by a user.
     console.log("Auctioning an item for a fixed price...")
     const fixedPriceSellOrder = await seaport.createSellOrder({
         tokenId: "1",
@@ -50,7 +51,7 @@ async function main() {
         startAmount: .05,
         expirationTime: 0,
         accountAddress: OWNER_ADDRESS
-    })    
+    })
     console.log(`Successfully created a fixed-price sell order! ${fixedPriceSellOrder.asset.openseaLink}\n`)
 
     // // Example: Dutch auction.

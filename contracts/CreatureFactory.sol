@@ -49,7 +49,7 @@ contract CreatureFactory is Factory, Ownable {
   function numOptions() public view returns (uint256) {
     return NUM_OPTIONS;
   }
-  
+
   function mint(uint256 _optionId, address _toAddress) public {
     // Must be sent from the owner proxy or owner.
     ProxyRegistry proxyRegistry = ProxyRegistry(proxyRegistryAddress);
@@ -66,7 +66,7 @@ contract CreatureFactory is Factory, Ownable {
     } else if (_optionId == LOOTBOX_OPTION) {
       CreatureLootBox openSeaCreatureLootBox = CreatureLootBox(lootBoxNftAddress);
       openSeaCreatureLootBox.mintTo(_toAddress);
-    } 
+    }
   }
 
   function canMint(uint256 _optionId) public view returns (bool) {
@@ -88,7 +88,7 @@ contract CreatureFactory is Factory, Ownable {
     }
     return creatureSupply < (CREATURE_SUPPLY - numItemsAllocated);
   }
-  
+
   function tokenURI(uint256 _optionId) external view returns (string memory) {
     return Strings.strConcat(
         baseURI,
@@ -100,7 +100,7 @@ contract CreatureFactory is Factory, Ownable {
    * Hack to get things to work automatically on OpenSea.
    * Use transferFrom so the frontend doesn't have to worry about different method names.
    */
-  function transferFrom(address _from, address _to, uint256 _tokenId) public {
+  function transferFrom(address /* _from */, address _to, uint256 _tokenId) public {
     mint(_tokenId, _to);
   }
 
@@ -132,7 +132,7 @@ contract CreatureFactory is Factory, Ownable {
    * Hack to get things to work automatically on OpenSea.
    * Use isApprovedForAll so the frontend doesn't have to worry about different method names.
    */
-  function ownerOf(uint256 _tokenId) public view returns (address _owner) {
+  function ownerOf(uint256 /* _tokenId */) public view returns (address _owner) {
     return owner();
   }
 }

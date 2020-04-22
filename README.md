@@ -35,9 +35,7 @@ sudo npm explore npm -g -- npm install node-gyp@latest # Update node-gyp
 2. Using your API key and the mnemonic for your Metamask wallet (make sure you're using a Metamask seed phrase that you're comfortable using for testing purposes), run:
 
 ```
-export INFURA_KEY="<your_infura_project_id>"
-export MNEMONIC="<metmask_mnemonic>"
-truffle deploy --network rinkeby
+npm run deploy:rinkeby
 ```
 
 ### Minting tokens.
@@ -45,10 +43,7 @@ truffle deploy --network rinkeby
 After deploying to the Rinkeby network, there will be a contract on Rinkeby that will be viewable on [Rinkeby Etherscan](https://rinkeby.etherscan.io). For example, here is a [recently deployed contract](https://rinkeby.etherscan.io/address/0xeba05c5521a3b81e23d15ae9b2d07524bc453561). You should set this contract address and the address of your Metamask account as environment variables when running the minting script:
 
 ```
-export OWNER_ADDRESS="<my_address>"
-export NFT_CONTRACT_ADDRESS="<deployed_contract_address>"
-export NETWORK="rinkeby"
-node scripts/mint.js
+npm run mint
 ```
 
 ### Diagnosing Common Issues

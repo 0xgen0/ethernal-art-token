@@ -1,3 +1,4 @@
+require('dotenv').config()
 const opensea = require('opensea-js')
 const OpenSeaPort = opensea.OpenSeaPort;
 const Network = opensea.Network;
@@ -14,7 +15,7 @@ const API_KEY = process.env.API_KEY || "" // API key is optional but useful if y
 
 const DUTCH_AUCTION_OPTION_ID = "1";
 const DUTCH_AUCTION_START_AMOUNT = 100;
-const DUTCH_AUCTION_END_AMOUNT = 50;    
+const DUTCH_AUCTION_END_AMOUNT = 50;
 const NUM_DUTCH_AUCTIONS = 3;
 
 const FIXED_PRICE_OPTION_ID = "2";
@@ -80,7 +81,7 @@ async function main() {
     const dutchSellOrders = await seaport.createFactorySellOrders({
         assetId: DUTCH_AUCTION_OPTION_ID,
         factoryAddress: FACTORY_CONTRACT_ADDRESS,
-        accountAddress: OWNER_ADDRESS, 
+        accountAddress: OWNER_ADDRESS,
         startAmount: DUTCH_AUCTION_START_AMOUNT,
         endAmount: DUTCH_AUCTION_END_AMOUNT,
         expirationTime: expirationTime,

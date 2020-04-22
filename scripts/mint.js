@@ -1,3 +1,4 @@
+require('dotenv').config()
 const HDWalletProvider = require("truffle-hdwallet-provider")
 const web3 = require('web3')
 const MNEMONIC = process.env.MNEMONIC
