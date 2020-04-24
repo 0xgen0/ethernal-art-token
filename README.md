@@ -1,6 +1,4 @@
-## OpenSeaCreatures ERC721 contracts
-
-### About OpenSeaCreatures.
+## Gen0 Artwork ERC721 contracts
 
 This is a very simple sample ERC721 for the purposes of demonstrating integration with the [OpenSea](https://opensea.io) marketplace. We include a script for minting the items.
 

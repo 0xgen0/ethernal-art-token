@@ -2,16 +2,14 @@ pragma solidity ^0.5.0;
 
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 import "./Factory.sol";
-import "./Creature.sol";
-import "./CreatureLootBox.sol";
+import "./GenZeroArt.sol";
 import "./Strings.sol";
 
-contract CreatureFactory is Factory, Ownable {
+contract GenZeroArtFactory is Factory, Ownable {
   using Strings for string;
 
   address public proxyRegistryAddress;
   address public nftAddress;
-  address public lootBoxNftAddress;
   string public baseURI = "https://opensea-creatures-api.herokuapp.com/api/factory/";
 
   /**
@@ -25,21 +23,19 @@ contract CreatureFactory is Factory, Ownable {
   uint256 NUM_OPTIONS = 3;
   uint256 SINGLE_CREATURE_OPTION = 0;
   uint256 MULTIPLE_CREATURE_OPTION = 1;
-  uint256 LOOTBOX_OPTION = 2;
   uint256 NUM_CREATURES_IN_MULTIPLE_CREATURE_OPTION = 4;
 
   constructor(address _proxyRegistryAddress, address _nftAddress) public {
     proxyRegistryAddress = _proxyRegistryAddress;
     nftAddress = _nftAddress;
-    lootBoxNftAddress = address(new CreatureLootBox(_proxyRegistryAddress, address(this)));
   }
 
   function name() external view returns (string memory) {
-    return "OpenSeaCreature Item Sale";
+    return "Gen0 Art Factory";
   }
 
   function symbol() external view returns (string memory) {
-    return "CPF";
+    return "GZRF";
   }
 
   function supportsFactoryInterface() public view returns (bool) {
@@ -56,16 +52,13 @@ contract CreatureFactory is Factory, Ownable {
     assert(address(proxyRegistry.proxies(owner())) == msg.sender || owner() == msg.sender || msg.sender == lootBoxNftAddress);
     require(canMint(_optionId));
 
-    Creature openSeaCreature = Creature(nftAddress);
+    GenZeroArt art = GenZeroArt(nftAddress);
     if (_optionId == SINGLE_CREATURE_OPTION) {
-      openSeaCreature.mintTo(_toAddress);
+      art.mintTo(_toAddress);
     } else if (_optionId == MULTIPLE_CREATURE_OPTION) {
       for (uint256 i = 0; i < NUM_CREATURES_IN_MULTIPLE_CREATURE_OPTION; i++) {
-        openSeaCreature.mintTo(_toAddress);
+        art.mintTo(_toAddress);
       }
-    } else if (_optionId == LOOTBOX_OPTION) {
-      CreatureLootBox openSeaCreatureLootBox = CreatureLootBox(lootBoxNftAddress);
-      openSeaCreatureLootBox.mintTo(_toAddress);
     }
   }
 
@@ -74,17 +67,14 @@ contract CreatureFactory is Factory, Ownable {
       return false;
     }
 
-    Creature openSeaCreature = Creature(nftAddress);
-    uint256 creatureSupply = openSeaCreature.totalSupply();
+    GenZeroArt art = GenZeroArt(nftAddress);
+    uint256 creatureSupply = art.totalSupply();
 
     uint256 numItemsAllocated = 0;
     if (_optionId == SINGLE_CREATURE_OPTION) {
       numItemsAllocated = 1;
     } else if (_optionId == MULTIPLE_CREATURE_OPTION) {
       numItemsAllocated = NUM_CREATURES_IN_MULTIPLE_CREATURE_OPTION;
-    } else if (_optionId == LOOTBOX_OPTION) {
-      CreatureLootBox openSeaCreatureLootBox = CreatureLootBox(lootBoxNftAddress);
-      numItemsAllocated = openSeaCreatureLootBox.itemsPerLootbox();
     }
     return creatureSupply < (CREATURE_SUPPLY - numItemsAllocated);
   }
