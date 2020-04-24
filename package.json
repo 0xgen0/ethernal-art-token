@@ -19,6 +19,8 @@
   "homepage": "https://github.com/ProjectOpenSea/erc721-starter-contracts#readme",
   "dependencies": {
     "@0x/subproviders": "^2.1.4",
+    "@pinata/sdk": "^1.1.8",
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "opensea-js": "latest",
     "openzeppelin-solidity": "^2.1.3",
