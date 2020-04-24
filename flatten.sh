@@ -1,2 +1,2 @@
-./node_modules/.bin/truffle-flattener contracts/GenZeroArt.sol > flattened/GenZeroArt.sol
-./node_modules/.bin/truffle-flattener contracts/GenZeroArtFactory.sol > flattened/GenZeroArtFactory.sol
+./node_modules/.bin/truffle-flattener contracts/EthernalArt.sol > flattened/EthernalArt.sol
+./node_modules/.bin/truffle-flattener contracts/EthernalArtFactory.sol > flattened/EthernalArtFactory.sol

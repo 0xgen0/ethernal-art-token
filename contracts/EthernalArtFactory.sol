@@ -2,10 +2,10 @@ pragma solidity ^0.5.0;
 
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 import "./Factory.sol";
-import "./GenZeroArt.sol";
+import "./EthernalArt.sol";
 import "./Strings.sol";
 
-contract GenZeroArtFactory is Factory, Ownable {
+contract EthernalArtFactory is Factory, Ownable {
   using Strings for string;
 
   address public proxyRegistryAddress;
@@ -31,11 +31,11 @@ contract GenZeroArtFactory is Factory, Ownable {
   }
 
   function name() external view returns (string memory) {
-    return "Gen0 Art Factory";
+    return "Ethernal Art Factory";
   }
 
   function symbol() external view returns (string memory) {
-    return "GZRF";
+    return "EAF";
   }
 
   function supportsFactoryInterface() public view returns (bool) {
@@ -52,7 +52,7 @@ contract GenZeroArtFactory is Factory, Ownable {
     assert(address(proxyRegistry.proxies(owner())) == msg.sender || owner() == msg.sender || msg.sender == lootBoxNftAddress);
     require(canMint(_optionId));
 
-    GenZeroArt art = GenZeroArt(nftAddress);
+    EthernalArt art = EthernalArt(nftAddress);
     if (_optionId == SINGLE_CREATURE_OPTION) {
       art.mintTo(_toAddress);
     } else if (_optionId == MULTIPLE_CREATURE_OPTION) {
@@ -67,7 +67,7 @@ contract GenZeroArtFactory is Factory, Ownable {
       return false;
     }
 
-    GenZeroArt art = GenZeroArt(nftAddress);
+    EthernalArt art = EthernalArt(nftAddress);
     uint256 creatureSupply = art.totalSupply();
 
     uint256 numItemsAllocated = 0;

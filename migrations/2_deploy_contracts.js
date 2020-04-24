@@ -1,5 +1,5 @@
-const GenZeroArt = artifacts.require("./GenZeroArt.sol");
-const GenZeroArtFactory = artifacts.require("./GenZeroArtFactory.sol");
+const EthernalArt = artifacts.require("./EthernalArt.sol");
+const EthernalArtFactory = artifacts.require("./EthernalArtFactory.sol");
 
 module.exports = function(deployer, network) {
   // OpenSea proxy registry addresses for rinkeby and mainnet.
@@ -10,5 +10,5 @@ module.exports = function(deployer, network) {
     proxyRegistryAddress = "0xa5409ec958c83c3f309868babaca7c86dcb077c1";
   }
 
-  deployer.deploy(GenZeroArt, proxyRegistryAddress, {gas: 5000000});
+  deployer.deploy(EthernalArt, proxyRegistryAddress, {gas: 5000000});
 };

@@ -1,22 +1,14 @@
 {
-  "name": "erc721-starter-contracts",
+  "name": "ethernal-artwork",
   "version": "1.0.0",
-  "description": "Starter contracts for an ERC721 project.",
+  "description": "Ethernal Artwork ERC721 token factory.",
   "main": "index.js",
   "scripts": {
     "deploy:rinkeby": "./node_modules/.bin/truffle deploy --network rinkeby",
-    "mint": "node scripts/mint.js"
+    "mint": "node scripts/mint.js",
+    "upload": "node scripts/upload_file.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProjectOpenSea/erc721-starter-contracts.git"
-  },
-  "author": "devin.finzer@opensea.io",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ProjectOpenSea/erc721-starter-contracts/issues"
-  },
-  "homepage": "https://github.com/ProjectOpenSea/erc721-starter-contracts#readme",
   "dependencies": {
     "@0x/subproviders": "^2.1.4",
     "@pinata/sdk": "^1.1.8",
