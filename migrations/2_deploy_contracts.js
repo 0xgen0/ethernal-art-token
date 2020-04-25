@@ -1,5 +1,4 @@
 const EthernalArt = artifacts.require("./EthernalArt.sol");
-const EthernalArtFactory = artifacts.require("./EthernalArtFactory.sol");
 
 module.exports = function(deployer, network) {
   // OpenSea proxy registry addresses for rinkeby and mainnet.

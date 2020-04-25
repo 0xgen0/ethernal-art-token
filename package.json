@@ -4,8 +4,9 @@
   "description": "Ethernal Artwork ERC721 token factory.",
   "main": "index.js",
   "scripts": {
+    "deploy": "./node_modules/.bin/truffle deploy --network development --reset",
     "deploy:rinkeby": "./node_modules/.bin/truffle deploy --network rinkeby",
-    "mint": "node scripts/mint.js",
+    "print": "node scripts/print_edition.js",
     "upload": "node scripts/upload_file.js"
   },
   "license": "ISC",
@@ -14,6 +15,7 @@
     "@pinata/sdk": "^1.1.8",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
+    "mkdirp": "^1.0.4",
     "opensea-js": "latest",
     "openzeppelin-solidity": "^2.1.3",
     "scrypt": "^6.0.3",

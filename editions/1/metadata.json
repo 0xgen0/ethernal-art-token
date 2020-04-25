@@ -1,14 +1,10 @@
 {
-  "description": "This section of the dungeon is painted with blood of explorers.\nGame: Ethernal",
+  "description": "This section of the dungeon is painted with blood of explorers.",
   "external_url": "ethernal.world",
   "name": "Graveyard",
+  "image": "image.png",
   "background_color": "000000",
   "attributes": [
-    {
-      "display_type": "number",
-      "trait_type": "Series",
-      "value": 1
-    },
     {
       "display_type": "number",
       "trait_type": "Print",

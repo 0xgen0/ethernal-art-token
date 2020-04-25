@@ -28,10 +28,11 @@ contract TradeableERC721Token is ERC721Full, Ownable {
     * @dev Mints a token to an address with a tokenURI.
     * @param _to address of the future owner of the token
     */
-  function mintTo(address _to) public onlyOwner {
+  function mintTo(address _to) internal returns (uint256) {
     uint256 newTokenId = _getNextTokenId();
     _mint(_to, newTokenId);
     _incrementTokenId();
+    return newTokenId;
   }
 
   /**
@@ -47,17 +48,6 @@ contract TradeableERC721Token is ERC721Full, Ownable {
     */
   function _incrementTokenId() private  {
     _currentTokenId++;
-  }
-
-  function baseTokenURI() public view returns (string memory) {
-    return "";
-  }
-
-  function tokenURI(uint256 _tokenId) external view returns (string memory) {
-    return Strings.strConcat(
-        baseTokenURI(),
-        Strings.uint2str(_tokenId)
-    );
   }
 
   /**
