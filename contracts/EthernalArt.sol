@@ -56,7 +56,7 @@ contract EthernalArt is TradeableERC721Token {
   }
 
   function contractURI() public pure returns (string memory) {
-    return "https://ipfs.io/ipfs/QmNVWRRHm6CJNv4C4aVntiKSkTFnCfJRacVQMQP6cjNe8R";
+    return "https://ipfs.io/ipfs/Qmaqxv5nBkqEqrAYCuusjp2cbjET1iSaufCGC8ZBhfmhjH";
   }
 
   function getEdition(uint16 _editionId) public view returns (uint16 size, string memory metadata) {

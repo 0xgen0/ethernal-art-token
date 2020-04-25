@@ -73,7 +73,7 @@ async function main() {
         {
           display_type: "number",
           trait_type: "Edition",
-          value: edition
+          value: Number(edition)
         }
       ]
     };
