@@ -1,18 +1,18 @@
 {
-  "description": "This section of the dungeon is painted with blood of explorers.",
+  "description": "Limited edition NFT (20 total).\n\nBy Komiyama Takashi",
   "external_url": "https://ethernal.world",
-  "name": "Graveyard",
-  "image": "image.png",
+  "name": "Ethernal X Hermippe",
+  "image": "pr-art-animation-square-256.gif",
   "background_color": "000000",
   "attributes": [
     {
       "display_type": "number",
       "trait_type": "Print",
-      "max_value": 10
+      "max_value": 20
     },
     {
       "trait_type": "Author",
-      "value": "Lumir"
+      "value": "Komiyama Takashi"
     }
   ]
 }
