@@ -39,7 +39,7 @@ const NFT_ABI = [{
       "type": "string"
     }
   ],
-  "name": "printEdition",
+  "name": "printSeries",
   "outputs": [],
   "payable": false,
   "stateMutability": "nonpayable",
@@ -47,21 +47,21 @@ const NFT_ABI = [{
 }];
 
 async function main() {
-  const edition = process.argv[2];
-  if (!edition) {
+  const series = process.argv[2];
+  if (!series) {
     console.log('edition has to be specified');
     process.exit(1);
   }
-  console.log('releasing edition ' + edition);
-  const template = require(`../editions/${edition}/metadata.json`);
+  console.log('releasing edition ' + series);
+  const template = require(`../editions/${series}/metadata.json`);
 
   console.log('uploading image');
-  const {IpfsHash: image} = await pinata.pinFileToIPFS(fs.createReadStream(path.join(__dirname, '..', 'editions', edition, template.image)));
+  const {IpfsHash: image} = await pinata.pinFileToIPFS(fs.createReadStream(path.join(__dirname, '..', 'editions', series, template.image)));
   console.log(image);
 
   const prints = template.attributes.filter(({trait_type}) => trait_type === 'Edition')[0].max_value;
   console.log(`generating metadata for ${prints} prints`);
-  const dir = path.join(__dirname, '..', 'build', edition);
+  const dir = path.join(__dirname, '..', 'build', series);
   mkdirp.sync(dir);
   for (let i = 1; i <= prints; i++) {
     const data = {
@@ -73,7 +73,7 @@ async function main() {
         {
           display_type: "number",
           trait_type: "Series",
-          value: Number(edition)
+          value: Number(series)
         }
       ]
     };
@@ -89,7 +89,7 @@ async function main() {
   const web3 = new Web3(provider);
   const [from] = await web3.eth.getAccounts();
   const contract = new web3.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS, {gasLimit: "6000000"});
-  const {transactionHash} = await contract.methods.printEdition(edition, prints, metadata).send({from});
+  const {transactionHash} = await contract.methods.printSeries(series, prints, metadata).send({from});
   console.log(transactionHash);
 }
 

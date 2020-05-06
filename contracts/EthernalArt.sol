@@ -10,62 +10,63 @@ import './Strings.sol';
 contract EthernalArt is TradeableERC721Token {
   using Strings for string;
 
-  struct Edition {
+  struct Series {
     uint16 size;
     string metadata;
   }
 
-  struct Print {
+  struct Edition {
     uint16 number;
-    uint16 edition;
+    uint16 series;
   }
 
-  mapping(uint256 => Print) public prints;
-  mapping(uint16 => Edition) public editions;
-  uint16 public lastEdition = 0;
+  mapping(uint256 => Edition) public edition;
+  mapping(uint16 => Series) public series;
+  uint16 public lastSeries = 0;
 
-  event EditionPrinted(uint16 indexed edition, uint16 size, string metadata);
+  event Printed(uint16 indexed series, uint16 size, string metadata);
 
   constructor(address _proxyRegistryAddress) TradeableERC721Token("Ethernal:Art", "EA", _proxyRegistryAddress) public {  }
 
   function tokenURI(uint256 _tokenId) external view returns (string memory) {
-    Print storage print = prints[_tokenId];
+    Edition storage edition = edition[_tokenId];
+    require(edition.series != 0, 'not found');
     return Strings.strConcat(
       "https://ipfs.io/ipfs/",
-      editions[print.edition].metadata,
+      series[edition.series].metadata,
       "/",
-      Strings.uint2str(uint256(print.number))
+      Strings.uint2str(uint256(edition.number))
     );
   }
 
-  function printEdition(uint16 _editionId, uint16 size, string memory metadata) public onlyOwner {
-    require(_editionId == lastEdition + 1, "not next edition");
-    require(_editionId > lastEdition, "too many editions");
-    require(!metadata.equals(editions[lastEdition].metadata), "last edition was same");
-    Edition storage edition = editions[_editionId];
-    edition.metadata = metadata;
-    edition.size = size;
+  function printSeries(uint16 _series, uint16 size, string memory metadata) public onlyOwner {
+    require(_series == lastSeries + 1, "not next series");
+    require(_series > lastSeries, "too many series");
+    require(!metadata.equals(series[lastSeries].metadata), "last series was same");
+    Series storage series = series[_series];
+    series.metadata = metadata;
+    series.size = size;
     for (uint16 i = 1; i <= size; i++) {
       uint256 token = mintTo(owner());
-      Print storage print = prints[token];
-      print.number = i;
-      print.edition = _editionId;
+      Edition storage edition = edition[token];
+      edition.number = i;
+      edition.series = _series;
     }
-    lastEdition = _editionId;
-    emit EditionPrinted(lastEdition, size, metadata);
+    lastSeries = _series;
+    emit Printed(lastSeries, size, metadata);
   }
 
   function contractURI() public pure returns (string memory) {
     return "https://ipfs.io/ipfs/QmWwwieZERn5e5ubFVQfGbQ94d1Ro4Vrpio7CPDomMmpqd";
   }
 
-  function getEdition(uint16 _editionId) public view returns (uint16 size, string memory metadata) {
-    size = editions[_editionId].size;
-    metadata = editions[_editionId].metadata;
+  function getSeries(uint16 _series) public view returns (uint16 size, string memory metadata) {
+    size = series[_series].size;
+    metadata = series[_series].metadata;
   }
 
-  function getPrint(uint256 _tokenId) public view returns (uint16 number, uint16 edition) {
-    number = prints[_tokenId].number;
-    edition = prints[_tokenId].edition;
+  function getEdition(uint256 _tokenId) public view returns (uint16 number, uint16 series) {
+    number = edition[_tokenId].number;
+    series = edition[_tokenId].series;
   }
 }
