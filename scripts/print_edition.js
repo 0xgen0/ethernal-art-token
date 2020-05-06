@@ -67,7 +67,7 @@ async function main() {
     const data = {
       ...template,
       name: `${template.name} ${i}/${prints}`,
-      image: `ipfs://${image}`,
+      image: `https://ipfs.io/ipfs/${image}`,
       attributes: [
         ...template.attributes.map(a => a.trait_type === 'Edition' ? {...a, value: i} : a),
         {

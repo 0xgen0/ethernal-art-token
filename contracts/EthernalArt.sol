@@ -31,7 +31,7 @@ contract EthernalArt is TradeableERC721Token {
   function tokenURI(uint256 _tokenId) external view returns (string memory) {
     Print storage print = prints[_tokenId];
     return Strings.strConcat(
-      "ipfs://",
+      "https://ipfs.io/ipfs/",
       editions[print.edition].metadata,
       "/",
       Strings.uint2str(uint256(print.number))
@@ -56,7 +56,7 @@ contract EthernalArt is TradeableERC721Token {
   }
 
   function contractURI() public pure returns (string memory) {
-    return "ipfs://QmTJfzn5C4q64Yd5U51n51HfDBuXTCpyUTYCyxiiLeb54W";
+    return "https://ipfs.io/ipfs/QmWwwieZERn5e5ubFVQfGbQ94d1Ro4Vrpio7CPDomMmpqd";
   }
 
   function getEdition(uint16 _editionId) public view returns (uint16 size, string memory metadata) {
