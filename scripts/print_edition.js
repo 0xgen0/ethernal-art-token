@@ -12,6 +12,7 @@ const NFT_CONTRACT_ADDRESS = process.env.NFT_CONTRACT_ADDRESS;
 const NETWORK = process.env.NETWORK;
 const PINATA_API_KEY = process.env.PINATA_API_KEY;
 const PINATA_SECRET = process.env.PINATA_SECRET;
+const FROM = process.env.FROM;
 
 if (!MNEMONIC || !INFURA_KEY || !NETWORK || !PINATA_API_KEY || !PINATA_SECRET || !NFT_CONTRACT_ADDRESS) {
   console.error("Please set a mnemonic, infura key, network, pinata auth and contract address.");
@@ -82,7 +83,10 @@ async function main() {
       ? new Web3("http://127.0.0.1:8545")
       : new HDWalletProvider(MNEMONIC, `https://${NETWORK}.infura.io/v3/${INFURA_KEY}`);
   const web3 = new Web3(provider);
-  const [from] = await web3.eth.getAccounts();
+  let [from] = await web3.eth.getAccounts();
+  if (FROM) {
+    from = FROM;
+  }
   const contract = new web3.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS, {gasLimit: "6000000"});
   const {transactionHash} = await contract.methods.printEdition(edition, prints, metadata).send({from});
   console.log(transactionHash);
