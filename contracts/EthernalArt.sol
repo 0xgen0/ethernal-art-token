@@ -29,30 +29,30 @@ contract EthernalArt is TradeableERC721Token {
   constructor(address _proxyRegistryAddress) TradeableERC721Token("Ethernal:Art", "EA", _proxyRegistryAddress) public {  }
 
   function tokenURI(uint256 _tokenId) external view returns (string memory) {
-    Edition storage edition = edition[_tokenId];
-    require(edition.series != 0, 'not found');
+    Edition storage _edition = edition[_tokenId];
+    require(_edition.series != 0, 'not found');
     return Strings.strConcat(
       "https://ipfs.io/ipfs/",
-      series[edition.series].metadata,
+      series[_edition.series].metadata,
       "/",
-      Strings.uint2str(uint256(edition.number))
+      Strings.uint2str(uint256(_edition.number))
     );
   }
 
-  function printSeries(uint16 _series, uint16 size, string memory metadata) public onlyOwner {
-    require(_series == lastSeries + 1, "not next series");
-    require(_series > lastSeries, "too many series");
+  function printSeries(uint16 _seriesId, uint16 size, string memory metadata) public onlyOwner {
+    require(_seriesId == lastSeries + 1, "not next series");
+    require(_seriesId > lastSeries, "too many series");
     require(!metadata.equals(series[lastSeries].metadata), "last series was same");
-    Series storage series = series[_series];
-    series.metadata = metadata;
-    series.size = size;
+    Series storage newSeries = series[_seriesId];
+    newSeries.metadata = metadata;
+    newSeries.size = size;
     for (uint16 i = 1; i <= size; i++) {
       uint256 token = mintTo(owner());
-      Edition storage edition = edition[token];
-      edition.number = i;
-      edition.series = _series;
+      Edition storage _edition = edition[token];
+      _edition.number = i;
+      _edition.series = _seriesId;
     }
-    lastSeries = _series;
+    lastSeries = _seriesId;
     emit Printed(lastSeries, size, metadata);
   }
 

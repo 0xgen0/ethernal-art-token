@@ -7,7 +7,7 @@
     "deploy": "./node_modules/.bin/truffle deploy --network development --reset",
     "print": "NETWORK=development node scripts/print_edition.js",
     "deploy:rinkeby": "./node_modules/.bin/truffle deploy --network rinkeby",
-    "print:rinkeby": "NETWORK=rinkeby NFT_CONTRACT_ADDRESS=0x5b9b0c0d189829513a7fA3b06b1AEd2090787920 node scripts/print_edition.js",
+    "print:rinkeby": "NETWORK=rinkeby NFT_CONTRACT_ADDRESS=0x3B90fd31fdEC481df2974f9D4Ff1d31508f7064b node scripts/print_edition.js",
     "upload": "node scripts/upload_file.js"
   },
   "license": "ISC",
