@@ -81,7 +81,7 @@ async function main() {
   console.log('printing');
   const provider = NETWORK === 'development'
       ? new Web3("http://127.0.0.1:8545")
-      : new HDWalletProvider(MNEMONIC, `https://${NETWORK}.infura.io/v3/${INFURA_KEY}`);
+      : new HDWalletProvider(MNEMONIC, `https://${NETWORK}.infura.io/v3/${INFURA_KEY}`, 0, 5);
   const web3 = new Web3(provider);
   let [from] = await web3.eth.getAccounts();
   if (FROM) {

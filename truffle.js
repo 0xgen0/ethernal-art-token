@@ -20,8 +20,8 @@ module.exports = {
       provider: function() {
         return new HDWalletProvider(
           MNEMONIC,
-          "https://rinkeby.infura.io/v3/" + INFURA_KEY
-        );
+          "https://rinkeby.infura.io/v3/" + INFURA_KEY,
+          0, 5);
       },
       network_id: "*",
       gas: 4000000
@@ -31,8 +31,8 @@ module.exports = {
       provider: function() {
         return new HDWalletProvider(
           MNEMONIC,
-          "https://mainnet.infura.io/v3/" + INFURA_KEY
-        );
+          "https://mainnet.infura.io/v3/" + INFURA_KEY,
+          0, 5);
       },
       gas: 4000000,
       gasPrice: 5000000000
