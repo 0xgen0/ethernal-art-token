@@ -69,12 +69,7 @@ async function main() {
       name: `${template.name} ${i}/${prints}`,
       image: `https://ipfs.io/ipfs/${image}`,
       attributes: [
-        ...template.attributes.map(a => a.trait_type === 'Edition' ? {...a, value: i} : a),
-        {
-          display_type: "number",
-          trait_type: "Series",
-          value: Number(series)
-        }
+        ...template.attributes.map(a => a.trait_type === 'Edition' ? {...a, value: i} : a)
       ]
     };
     fs.writeFileSync(path.join(dir, String(i)), JSON.stringify(data, null, 2));
