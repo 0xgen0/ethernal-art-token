@@ -26,7 +26,7 @@ module.exports = {
       network_id: "*",
       gas: 4000000
     },
-    live: {
+    mainnet: {
       network_id: 1,
       provider: function() {
         return new HDWalletProvider(
@@ -35,7 +35,7 @@ module.exports = {
           0, 5);
       },
       gas: 4000000,
-      gasPrice: 5000000000
+      gasPrice: 10000000000
     }
   },
   mocha: {

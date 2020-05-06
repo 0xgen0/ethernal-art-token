@@ -13,6 +13,7 @@ const NETWORK = process.env.NETWORK;
 const PINATA_API_KEY = process.env.PINATA_API_KEY;
 const PINATA_SECRET = process.env.PINATA_SECRET;
 const FROM = process.env.FROM;
+const GAS_PRICE = process.env.GAS_PRICE || 10000000000;
 
 if (!MNEMONIC || !INFURA_KEY || !NETWORK || !PINATA_API_KEY || !PINATA_SECRET || !NFT_CONTRACT_ADDRESS) {
   console.error("Please set a mnemonic, infura key, network, pinata auth and contract address.");
@@ -68,7 +69,7 @@ async function main() {
     const data = {
       ...template,
       name: `${template.name} ${i}/${prints}`,
-      image: `https://ipfs.io/ipfs/${image}`,
+      image: `ipfs://${image}`,
       attributes: [
         ...template.attributes.map(a => a.trait_type === 'Edition' ? {...a, value: i} : a)
       ]
@@ -88,7 +89,7 @@ async function main() {
     from = FROM;
   }
   const contract = new web3.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS, {gasLimit: "6000000"});
-  const {transactionHash} = await contract.methods.printEdition(edition, prints, metadata).send({from});
+  const {transactionHash} = await contract.methods.printEdition(edition, prints, metadata).send({from, gasPrice: GAS_PRICE});
   console.log(transactionHash);
 }
 
