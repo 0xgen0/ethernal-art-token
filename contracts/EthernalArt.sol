@@ -26,12 +26,12 @@ contract EthernalArt is TradeableERC721Token {
 
   event EditionPrinted(uint16 indexed edition, uint16 size, string metadata);
 
-  constructor(address _proxyRegistryAddress) TradeableERC721Token("Ethernal Artwork", "EA", _proxyRegistryAddress) public {  }
+  constructor(address _proxyRegistryAddress) TradeableERC721Token("Ethernal:Art", "EA", _proxyRegistryAddress) public {  }
 
   function tokenURI(uint256 _tokenId) external view returns (string memory) {
     Print storage print = prints[_tokenId];
     return Strings.strConcat(
-      "https://ipfs.io/ipfs/",
+      "ipfs://",
       editions[print.edition].metadata,
       "/",
       Strings.uint2str(uint256(print.number))
@@ -56,7 +56,7 @@ contract EthernalArt is TradeableERC721Token {
   }
 
   function contractURI() public pure returns (string memory) {
-    return "https://ipfs.io/ipfs/Qmaqxv5nBkqEqrAYCuusjp2cbjET1iSaufCGC8ZBhfmhjH";
+    return "ipfs://QmTJfzn5C4q64Yd5U51n51HfDBuXTCpyUTYCyxiiLeb54W";
   }
 
   function getEdition(uint16 _editionId) public view returns (uint16 size, string memory metadata) {

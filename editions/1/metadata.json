@@ -1,17 +1,17 @@
 {
-  "description": "Limited edition NFT (20 total).\n\nBy Komiyama Takashi",
-  "external_url": "https://ethernal.world",
-  "name": "Ethernal X Hermippe",
-  "image": "pr-art-animation-square-256.gif",
+  "description": "Hello from the Ethernal. This is the first of our limited edition art series. For our upcoming Alpha 2.0 release, we have worked with artist Komiyama Takashi on a pixel art token 「the entrance」. “There’s a reason they have stayed away, but the reason you’ve come is stronger still.” \n\nThis token comes with:\n+ High resolution .jpeg and animated .gif files in portrait and landscape views\n+ Original sketch\n+ Desktop & mobile wallpapers\n\nAfter you purchase the art token, email enter@ethernal.world with the address that owns the token to receive the bundle. \n\nLimited to 20.",
+  "external_url": "https://ethernal.world/?art=1",
+  "name": "「the entrance」",
+  "image": "ethernal-entrance-512.gif",
   "background_color": "000000",
   "attributes": [
     {
       "display_type": "number",
-      "trait_type": "Print",
+      "trait_type": "Edition",
       "max_value": 20
     },
     {
-      "trait_type": "Author",
+      "trait_type": "Artist",
       "value": "Komiyama Takashi"
     }
   ]

@@ -59,7 +59,7 @@ async function main() {
   const {IpfsHash: image} = await pinata.pinFileToIPFS(fs.createReadStream(path.join(__dirname, '..', 'editions', edition, template.image)));
   console.log(image);
 
-  const prints = template.attributes.filter(({trait_type}) => trait_type === 'Print')[0].max_value;
+  const prints = template.attributes.filter(({trait_type}) => trait_type === 'Edition')[0].max_value;
   console.log(`generating metadata for ${prints} prints`);
   const dir = path.join(__dirname, '..', 'build', edition);
   mkdirp.sync(dir);
@@ -67,12 +67,12 @@ async function main() {
     const data = {
       ...template,
       name: `${template.name} ${i}/${prints}`,
-      image: `https://ipfs.io/ipfs/${image}`,
+      image: `ipfs://${image}`,
       attributes: [
-        ...template.attributes.map(a => a.trait_type === 'Print' ? {...a, value: i} : a),
+        ...template.attributes.map(a => a.trait_type === 'Edition' ? {...a, value: i} : a),
         {
           display_type: "number",
-          trait_type: "Edition",
+          trait_type: "Series",
           value: Number(edition)
         }
       ]
