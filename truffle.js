@@ -8,13 +8,16 @@ if (!MNEMONIC || !INFURA_KEY) {
   return
 }
 
+const gasPrice = process.env.GAS_PRICE || 10000000000;
+
 module.exports = {
   networks: {
     development: {
       host: "localhost",
       port: 8545,
       gas: 4600000,
-      network_id: "*" // Match any network id
+      network_id: "*", // Match any network id,
+      gasPrice
     },
     rinkeby: {
       provider: function() {
@@ -24,7 +27,8 @@ module.exports = {
           0, 5);
       },
       network_id: "*",
-      gas: 4000000
+      gas: 4000000,
+      gasPrice
     },
     mainnet: {
       network_id: 1,
@@ -35,7 +39,7 @@ module.exports = {
           0, 5);
       },
       gas: 4000000,
-      gasPrice: 10000000000
+      gasPrice
     }
   },
   mocha: {
