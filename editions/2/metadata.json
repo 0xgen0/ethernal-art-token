@@ -1,0 +1,28 @@
+{
+  "description": "✧Mage✧\n魔法使い\n\nHello from the Ethernal. We are working with artist Komiyama Takashi again on a pixel art collection: Ethernal x Hermippe Heroes. This is the first of the collection, for people who use magic ✧\n\nBased on the Ethernal hero classes, we are releasing a total of 5 artworks: a new limited artwork every 14 days. Each artwork will have a maximum of 20 art tokens.\n\nEach token comes with: High-resolution JPEG and animated GIF files + Original sketch + Mobile wallpapers. Collect all five tokens to receive special high-resolution JPEG and animated GIF files with all the heroes in portrait and landscape views.\n\nAfter you purchase the art token, email enter@ethernal.world with the address that owns the token to receive the bundle.",
+  "external_url": "https://ethernal.world/?art=2",
+  "name": "✧Mage✧",
+  "image": "cara01-512x512.gif",
+  "background_color": "000000",
+  "attributes": [
+    {
+      "display_type": "number",
+      "trait_type": "Edition",
+      "max_value": 20
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Artwork",
+      "value": 1,
+      "max_value": 5
+    },
+    {
+      "trait_type": "Artist",
+      "value": "Komiyama Takashi"
+    },
+    {
+      "trait_type": "Collection",
+      "value": "Ethernal x Hermippe Heroes"
+    }
+  ]
+}
