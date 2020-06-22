@@ -88,6 +88,8 @@ async function main() {
   if (FROM) {
     from = FROM;
   }
+  console.log('from', from);
+  console.log('with gas price', GAS_PRICE);
   const contract = new web3.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS, {gasLimit: "6000000"});
   const {transactionHash} = await contract.methods.printEdition(edition, prints, metadata).send({from, gasPrice: GAS_PRICE});
   console.log(transactionHash);
