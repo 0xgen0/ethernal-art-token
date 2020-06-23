@@ -21,6 +21,6 @@
     "truffle": "^5.0.37",
     "truffle-flattener": "^1.4.4",
     "truffle-hdwallet-provider": "^1.0.17",
-    "web3": "1.0.0-beta.55"
+    "web3": "^1.2.9"
   }
 }
