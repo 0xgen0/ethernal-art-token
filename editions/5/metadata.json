@@ -1,5 +1,5 @@
 {
-  "description": "~~There’s a reason they have stayed away, but the reason you’ve come is stronger still~~\n\nEthernal is multiplayer dungeon generated and owned by the players. Built on the blockchain. Ethernal Alpha 2.0 ran on Matic TestnetV3 from June 11, 2020 to July 21, 2020.\n\nAs a token of gratitude to our elite heroes—who have bravely explored the dungeon, generated rooms, and defeated monsters—we are gifting this NFT to each of the player’s account.\n\n✩ Level 8+ Heroes (30):\nhauSJanda, Miojo, STAN, Menathor, JiullRock, Butchy, Avalarion, subimpact, Spliff, Montaurus, Mizu, Icybird, Enumalis, Randolin, Cyrus, hackingmoneyph, GameWatch21, Dark, kenji, Htirav, subterranean, target_sir, Yunoh, Netw0rx, Master, Buck, mero, Clackity, Skeenee, AxieCab, ppk.",
+  "description": "~There’s a reason they have stayed away, but the reason you’ve come is stronger still~\n\nEthernal is multiplayer dungeon generated and owned by the players. Built on the blockchain. Ethernal Alpha 2.0 ran on Matic TestnetV3 from June 11, 2020 to July 21, 2020.\n\nAs a token of gratitude to our elite heroes—who have bravely explored the dungeon, generated rooms, and defeated monsters—we are gifting this NFT to each of the player’s account.\n\n✩ Level 8+ Heroes (30):\nhauSJanda, Miojo, STAN, Menathor, JiullRock, Butchy, Avalarion, subimpact, Spliff, Montaurus, Mizu, Icybird, Enumalis, Randolin, Cyrus, hackingmoneyph, GameWatch21, Dark, kenji, Htirav, subterranean, target_sir, Yunoh, Netw0rx, Master, Buck, mero, Clackity, Skeenee, AxieCab, ppk.",
   "external_url": "https://ethernal.world/?art=5",
   "name": "History of Ethernal Alpha II",
   "image": "alpha2history.gif",
@@ -11,29 +11,24 @@
       "max_value": 30
     },
     {
-      "display_type": "number",
-      "trait_type": "On-chain Moves",
-      "value": 101626
-    },
-    {
-      "display_type": "number",
       "trait_type": "Generated Rooms",
-      "value": 61086
+      "value": "61,086"
     },
     {
-      "display_type": "number",
+      "trait_type": "On-chain Moves",
+      "value": "101,626"
+    },
+    {
       "trait_type": "Heroes",
-      "value": 220
+      "value": "220"
     },
     {
-      "display_type": "number",
       "trait_type": "Defeated Monsters",
-      "value": 25406
+      "value": "25,406"
     },
     {
-      "display_type": "number",
       "trait_type": "Hero Deaths",
-      "value": 41
+      "value": "41"
     },
     {
       "display_type": "date",
