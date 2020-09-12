@@ -1,0 +1,22 @@
+{
+  "description": "Hello from the Ethernal. This is a special token for collectors of all five heroes from the Ethernal x Hermippe Heroes series: ΔYa-shaΔ, ↜Warrior↝, ✴Explorer✴, »Barbarian«, and ✧Mage✧.\n\nAbout the series:\nBased on the Ethernal hero characters, pixel artist Komiyama Takashi created 5 artworks: a new limited artwork that’s released every 14 days. Each character have a maximum of 20 art tokens.",
+  "external_url": "https://ethernal.world/?art=8",
+  "name": "Ethernal x Hermippe Heroes",
+  "image": "cara05-512x512.gif",
+  "background_color": "000000",
+  "attributes": [
+    {
+      "display_type": "number",
+      "trait_type": "Edition",
+      "max_value": 5
+    },
+    {
+      "trait_type": "Artist",
+      "value": "Komiyama Takashi"
+    },
+    {
+      "trait_type": "Collection",
+      "value": "Ethernal x Hermippe Heroes"
+    }
+  ]
+}
