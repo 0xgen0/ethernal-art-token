@@ -89,8 +89,11 @@ async function main() {
     from = FROM;
   }
   console.log('from', from);
-  console.log('with gas price', GAS_PRICE);
-  const contract = new web3.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS, {gasLimit: "6000000"});
+  console.log('with gas price gwei', Number(GAS_PRICE) / 1000000000);
+  const contract = new web3.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS, {gasLimit: "5000000"});
+  const gas = await contract.methods.printEdition(edition, prints, metadata).estimateGas({from, gasPrice: GAS_PRICE});
+  console.log('gas estimated', gas);
+  console.log('estimated cost in ETH', ((GAS_PRICE / 1000000000) * gas) / 1000000000);
   const {transactionHash} = await contract.methods.printEdition(edition, prints, metadata).send({from, gasPrice: GAS_PRICE});
   console.log(transactionHash);
 }
