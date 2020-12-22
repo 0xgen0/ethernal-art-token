@@ -1,14 +1,14 @@
 {
   "description": "Ethernal was a multiplayer dungeon generated and owned by the players. Built on the blockchain, Ethernal Mumbai ran on Matic Mumbai Testnet from August 7, 2020 to November 22, 2020.\n\nAs a token of gratitude to our players—who have bravely explored the dungeon, generated rooms, and defeated monsters—we are gifting this NFT, created with historical data on the blockchain from the nine floors generated in the Ethernal dungeon ✩",
   "external_url": "https://ipfs.io/ipfs/QmQu2jUmtFNPd86tEHFs6hmAArKYyjEC3xuwVWpFGjcMgm",
-  "name": "History of Ethernal Alpha Mumbai (Mage)",
-  "image": "alphaMumbaiHistory-mage.gif",
+  "name": "History of Ethernal Alpha Mumbai (Barbarian)",
+  "image": "alphaMumbaiHistory-barbarian.gif",
   "background_color": "000000",
   "attributes": [
     {
       "display_type": "number",
       "trait_type": "Edition",
-      "max_value": 82
+      "max_value": 19
     },
     {
       "trait_type": "Generated Rooms",
@@ -23,8 +23,8 @@
       "value": "264"
     },
     {
-      "trait_type": "Mages",
-      "value": "82"
+      "trait_type": "Barbarians",
+      "value": "19"
     },
     {
       "trait_type": "Defeated Monsters",
